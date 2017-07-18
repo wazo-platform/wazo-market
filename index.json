@@ -4,6 +4,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-user",
       "version": "0.0.2",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-user",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -23,6 +24,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-group",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-group",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -42,6 +44,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-conference",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-conference",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -61,6 +64,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-parking-lot",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-parking-lot",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -80,6 +84,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -99,6 +104,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-voicemail",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-voicemail",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -118,6 +124,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-cdr",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-cdr",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -137,6 +144,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-incall",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-incall",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -156,6 +164,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-outcall",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-outcall",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -175,6 +184,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-paging",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-paging",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -194,6 +204,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-moh",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-moh",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -213,6 +224,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-trunk",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-trunk",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -232,6 +244,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-extension",
       "version": "0.0.2",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-extension",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -251,6 +264,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-context",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-context",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -270,6 +284,7 @@
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-ivr",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-ivr",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -290,6 +305,7 @@
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-device",
       "version": "0.0.1",
       "options": {
+        "url": "https://github.com/wazo-pbx/wazo-admin-ui-device",
         "ref": "wazo-17.09"
       },
       "method": "git",
@@ -306,6 +322,9 @@
     },
     {
       "url": "https://github.com/sboily/incrediblepbx-firewall",
+      "options": {
+        "url": "https://github.com/sboily/incrediblepbx-firewall"
+      },
       "method": "git",
       "version": "0.0.1",
       "homepage": "https://github.com/sboily/incrediblepbx-firewall",
@@ -323,6 +342,9 @@
     },
     {
       "url": "https://github.com/sboily/incrediblepbx-pbxstatus",
+      "options": {
+        "url": "https://github.com/sboily/incrediblepbx-pbxstatus"
+      },
       "method": "git",
       "version": "0.0.1",
       "homepage": "https://github.com/sboily/incrediblepbx-pbxstatus",
@@ -340,6 +362,9 @@
     },
     {
       "url": "https://github.com/sboily/incrediblepbx-moh",
+      "options": {
+        "url": "https://github.com/sboily/incrediblepbx-moh"
+      },
       "method": "git",
       "version": "0.0.1",
       "homepage": "https://github.com/sboily/incrediblepbx-moh",
@@ -357,6 +382,9 @@
     },
     {
       "url": "https://github.com/sboily/wazo-confgend-driver-followme",
+      "options": {
+        "url": "https://github.com/sboily/wazo-confgend-driver-followme"
+      },
       "method": "git",
       "version": "0.0.1",
       "homepage": "https://github.com/sboily/wazo-confgend-driver-followme",
@@ -373,6 +401,9 @@
     },
     {
       "url": "https://github.com/sboily/wazo-confgend-driver-pjsip",
+      "options": {
+        "url": "https://github.com/sboily/wazo-confgend-driver-pjsip"
+      },
       "method": "git",
       "version": "0.0.1",
       "homepage": "https://github.com/sboily/wazo-confgend-driver-pjsip",
@@ -389,6 +420,9 @@
     },
     {
       "url": "https://github.com/sboily/wazo-plugind-queuemetrics-loway",
+      "options": {
+        "url": "https://github.com/sboily/wazo-plugind-queuemetrics-loway"
+      },
       "method": "git",
       "version": "0.0.1",
       "homepage": "http://www.queuemetrics.com",
@@ -406,6 +440,9 @@
     },
     {
       "url": "https://github.com/sboily/wazo-plugind-ngrok",
+      "options": {
+        "url": "https://github.com/sboily/wazo-plugind-ngrok"
+      },
       "method": "git",
       "version": "0.0.1",
       "homepage": "http://www.ngrok.com",
