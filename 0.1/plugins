@@ -19,7 +19,7 @@
             "ref": "wazo-17.09",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-user"
           },
-          "version": "0.0.2"
+          "version": "0.0.1"
         }
       ]
     },

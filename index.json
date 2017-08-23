@@ -2,7 +2,7 @@
   "items": [
     {
       "url": "https://github.com/wazo-pbx/wazo-admin-ui-user",
-      "version": "0.0.2",
+      "version": "0.0.1",
       "options": {
         "url": "https://github.com/wazo-pbx/wazo-admin-ui-user",
         "ref": "wazo-17.09"
