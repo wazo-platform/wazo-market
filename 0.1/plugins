@@ -16,6 +16,14 @@
         {
           "method": "git",
           "options": {
+            "ref": "v0.0.3",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-user"
+          },
+          "version": "0.0.3"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "wazo-17.10",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-user"
           },
