@@ -493,7 +493,7 @@
           "options": {
             "url": "https://github.com/sboily/wazo-confgend-driver-pjsip"
           },
-          "version": "0.0.1"
+          "version": "0.0.2"
         }
       ]
     },
