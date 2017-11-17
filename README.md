@@ -5,32 +5,20 @@ Content of the Wazo market place
 
 ### Create custom configuration file in your wazo server.
 
-````
-cat <<EOF > /etc/wazo-plugind/conf.d/010-market-dev.yml
-market:
-  host: 172.17.0.1
-  port: 8888
-EOF
-````
+* create `/etc/wazo-plugind/conf.d/010-market-dev.yml`
+  ````
+  market:
+    host: 172.17.0.1  # host on which the docker will run
+    port: 8888
+    version: dev  # if you want another version than the default 0.1
+  ````
 
-By default the `0.1` folder will be use. it's the version of the market.
+* restart wazo-plugind: `systemctl restart wazo-plugind.service`
 
-If you want to create a new plugins version
+### (Optional) Create custom market version
 
-````
-mkdir /path/to/wazo-market/dev
-touch /path/to/wazo-market/dev/plugins
-````
-
-add key version into your custom configuration file: 
-
-/etc/wazo-plugind/conf.d/010-market-dev.yml
-````
-market:
-  host: 172.17.0.1
-  port: 8888
-  version: dev
-````
+* `mkdir /path/to/wazo-market/dev`
+* `touch /path/to/wazo-market/dev/plugins`
 
 ### Launch container on your host
 
