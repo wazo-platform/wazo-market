@@ -463,10 +463,10 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.0.0",
+            "ref": "v1.0.1",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-context"
           },
-          "version": "1.0.0",
+          "version": "1.0.1",
           "min_wazo_version": "17.16"
         },
         {
