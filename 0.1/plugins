@@ -16,6 +16,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-user"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-user"
           },
@@ -67,6 +76,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-group"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-group"
           },
@@ -97,6 +115,15 @@
         "application"
       ],
       "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-conference"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
         {
           "method": "git",
           "options": {
@@ -133,6 +160,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-parking-lot"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-parking-lot"
           },
@@ -163,6 +199,15 @@
         "application"
       ],
       "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
         {
           "method": "git",
           "options": {
@@ -199,6 +244,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-voicemail"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-voicemail"
           },
@@ -229,6 +283,15 @@
         "application"
       ],
       "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-cdr"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
         {
           "method": "git",
           "options": {
@@ -265,6 +328,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-incall"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-incall"
           },
@@ -295,6 +367,15 @@
         "routing"
       ],
       "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-outcall"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
         {
           "method": "git",
           "options": {
@@ -331,6 +412,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-paging"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-paging"
           },
@@ -361,6 +451,15 @@
         "application"
       ],
       "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-moh"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
         {
           "method": "git",
           "options": {
@@ -397,6 +496,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-trunk"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-trunk"
           },
@@ -427,6 +535,15 @@
         "internal"
       ],
       "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-extension"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
         {
           "method": "git",
           "options": {
@@ -496,6 +613,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-ivr"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-ivr"
           },
@@ -559,6 +685,15 @@
         "internal"
       ],
       "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v1.1.0",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-webhook"
+          },
+          "version": "1.1.0",
+          "min_wazo_version": "17.17"
+        },
         {
           "method": "git",
           "options": {
