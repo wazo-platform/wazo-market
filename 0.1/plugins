@@ -71,6 +71,32 @@
     },
     {
       "author": "Wazo Team",
+      "color": "purple",
+      "display_name": "Funckey Template",
+      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-funckey",
+      "icon": "th-list",
+      "name": "admin-ui-funckey",
+      "namespace": "official",
+      "tags": [
+        "beta",
+        "user",
+        "funckey",
+        "device"
+      ],
+      "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v0.0.2-1",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-funckey"
+          },
+          "version": "0.0.2",
+          "min_wazo_version": "18.01"
+        }
+      ]
+    },
+    {
+      "author": "Wazo Team",
       "color": "aqua",
       "display_name": "Groups",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-group",
