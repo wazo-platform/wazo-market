@@ -95,7 +95,7 @@
     },
     {
       "author": "Wazo Team",
-      "color": "purple",
+      "color": "red",
       "display_name": "Funckey Template",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-funckey",
       "icon": "th-list",
@@ -427,7 +427,7 @@
     },
     {
       "author": "Wazo Team",
-      "color": "green",
+      "color": "yellow",
       "display_name": "Incalls",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-incall",
       "icon": "long-arrow-right",
@@ -478,7 +478,7 @@
     },
     {
       "author": "Wazo Team",
-      "color": "green",
+      "color": "yellow",
       "display_name": "Outcalls",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-outcall",
       "icon": "long-arrow-left",
@@ -631,7 +631,7 @@
     },
     {
       "author": "Wazo Team",
-      "color": "green",
+      "color": "yellow",
       "display_name": "Trunks",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-trunk",
       "icon": "server",
@@ -682,7 +682,7 @@
     },
     {
       "author": "Wazo Team",
-      "color": "red",
+      "color": "yellow",
       "display_name": "Extensions",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-extension",
       "icon": "gears",
@@ -733,7 +733,7 @@
     },
     {
       "author": "Wazo Team",
-      "color": "red",
+      "color": "yellow",
       "display_name": "Context",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-context",
       "icon": "gears",
