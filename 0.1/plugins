@@ -291,7 +291,7 @@
             "ref": "v1.1.0-1",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard"
           },
-          "version": "1.1.0",
+          "version": "1.1.0-1",
           "min_wazo_version": "18.01"
         },
         {
