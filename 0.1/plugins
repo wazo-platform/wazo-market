@@ -95,6 +95,30 @@
     },
     {
       "author": "Wazo Team",
+      "color": "yellow",
+      "display_name": "Line",
+      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-line",
+      "icon": "exchange",
+      "name": "admin-ui-line",
+      "namespace": "official",
+      "tags": [
+        "beta",
+        "user"
+      ],
+      "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "v0.0.1-1",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-line"
+          },
+          "version": "0.0.1-1",
+          "min_wazo_version": "18.01"
+        }
+      ]
+    },
+    {
+      "author": "Wazo Team",
       "color": "red",
       "display_name": "Funckey Template",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-funckey",
