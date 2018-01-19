@@ -16,15 +16,6 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.1.2-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-user"
-          },
-          "version": "1.1.2-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
             "ref": "v1.1.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-user"
           },
@@ -71,80 +62,6 @@
     },
     {
       "author": "Wazo Team",
-      "color": "red",
-      "display_name": "Schedule",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-schedule",
-      "icon": "clock-o",
-      "name": "admin-ui-schedule",
-      "namespace": "official",
-      "tags": [
-        "beta",
-        "user"
-      ],
-      "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v0.0.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-schedule"
-          },
-          "version": "0.0.1-1",
-          "min_wazo_version": "18.01"
-        }
-      ]
-    },
-    {
-      "author": "Wazo Team",
-      "color": "yellow",
-      "display_name": "Line",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-line",
-      "icon": "exchange",
-      "name": "admin-ui-line",
-      "namespace": "official",
-      "tags": [
-        "beta",
-        "user"
-      ],
-      "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v0.0.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-line"
-          },
-          "version": "0.0.1-1",
-          "min_wazo_version": "18.01"
-        }
-      ]
-    },
-    {
-      "author": "Wazo Team",
-      "color": "red",
-      "display_name": "Funckey Template",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-funckey",
-      "icon": "th-list",
-      "name": "admin-ui-funckey",
-      "namespace": "official",
-      "tags": [
-        "beta",
-        "user",
-        "funckey",
-        "device"
-      ],
-      "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v0.0.2-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-funckey"
-          },
-          "version": "0.0.2-1",
-          "min_wazo_version": "18.01"
-        }
-      ]
-    },
-    {
-      "author": "Wazo Team",
       "color": "aqua",
       "display_name": "Groups",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-group",
@@ -156,15 +73,6 @@
         "users"
       ],
       "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-group"
-          },
-          "version": "1.1.1-1",
-          "min_wazo_version": "18.01"
-        },
         {
           "method": "git",
           "options": {
@@ -210,15 +118,6 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.1.0-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-conference"
-          },
-          "version": "1.1.0-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
             "ref": "v1.1.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-conference"
           },
@@ -258,15 +157,6 @@
         "application"
       ],
       "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-parking-lot"
-          },
-          "version": "1.1.1-1",
-          "min_wazo_version": "18.01"
-        },
         {
           "method": "git",
           "options": {
@@ -315,15 +205,6 @@
             "ref": "v1.1.0-1",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard"
           },
-          "version": "1.1.0-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.0-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard"
-          },
           "version": "1.1.0",
           "min_wazo_version": "17.17"
         },
@@ -360,15 +241,6 @@
         "application"
       ],
       "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.0-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-voicemail"
-          },
-          "version": "1.1.0-1",
-          "min_wazo_version": "18.01"
-        },
         {
           "method": "git",
           "options": {
@@ -414,15 +286,6 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.1.0-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-cdr"
-          },
-          "version": "1.1.0-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
             "ref": "v1.1.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-cdr"
           },
@@ -462,15 +325,6 @@
         "routing"
       ],
       "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.0-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-incall"
-          },
-          "version": "1.1.0-1",
-          "min_wazo_version": "18.01"
-        },
         {
           "method": "git",
           "options": {
@@ -516,15 +370,6 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.1.0-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-outcall"
-          },
-          "version": "1.1.0-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
             "ref": "v1.1.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-outcall"
           },
@@ -564,15 +409,6 @@
         "application"
       ],
       "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.0-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-paging"
-          },
-          "version": "1.1.0-1",
-          "min_wazo_version": "18.01"
-        },
         {
           "method": "git",
           "options": {
@@ -618,15 +454,6 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.1.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-moh"
-          },
-          "version": "1.1.1-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
             "ref": "v1.1.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-moh"
           },
@@ -666,15 +493,6 @@
         "routing"
       ],
       "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-trunk"
-          },
-          "version": "1.1.1-1",
-          "min_wazo_version": "18.01"
-        },
         {
           "method": "git",
           "options": {
@@ -720,15 +538,6 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.2.0-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-extension"
-          },
-          "version": "1.2.0-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
             "ref": "v1.1.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-extension"
           },
@@ -771,15 +580,6 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.1.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-context"
-          },
-          "version": "1.1.1-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
             "ref": "v1.0.1",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-context"
           },
@@ -810,15 +610,6 @@
         "application"
       ],
       "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-ivr"
-          },
-          "version": "1.1.1-1",
-          "min_wazo_version": "18.01"
-        },
         {
           "method": "git",
           "options": {
@@ -864,15 +655,6 @@
         {
           "method": "git",
           "options": {
-            "ref": "v1.0.1-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-device"
-          },
-          "version": "1.0.1-1",
-          "min_wazo_version": "18.01"
-        },
-        {
-          "method": "git",
-          "options": {
             "ref": "v1.0.0",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-device"
           },
@@ -903,15 +685,6 @@
         "internal"
       ],
       "versions": [
-        {
-          "method": "git",
-          "options": {
-            "ref": "v1.1.2-1",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-webhook"
-          },
-          "version": "1.1.2-1",
-          "min_wazo_version": "18.01"
-        },
         {
           "method": "git",
           "options": {
