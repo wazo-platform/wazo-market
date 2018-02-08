@@ -616,6 +616,15 @@
         {
           "method": "git",
           "options": {
+            "ref": "v1.0.1-2",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-device"
+          },
+          "version": "1.0.1-2",
+          "min_wazo_version": "18.02"
+        },
+        {
+          "method": "git",
+          "options": {
             "ref": "v1.0.1-1",
             "url": "https://github.com/wazo-pbx/wazo-admin-ui-device"
           },
