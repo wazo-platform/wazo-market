@@ -1,0 +1,73 @@
+# Copyright 2018 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0+
+
+# This script clones a list of repository, find the version on the master branch
+# If there's no tag for the version master is tagged "v<version>" and the tag is
+# pushed.
+
+import git
+import os
+import shutil
+import tempfile
+import traceback
+import yaml
+
+repos = [
+    'git@github.com:wazo-pbx/wazo-admin-ui-user.git',
+]
+
+
+def tag_exists(repo, tag_name):
+    print('searching for', tag_name)
+    for tagref in git.TagReference.list_items(repo):
+        if not tagref.tag:
+            continue
+
+        if tagref.tag.tag == tag_name:
+            return True
+
+    return False
+
+
+def get_current_version(workdir):
+    print('loading plugin metadata')
+    with open(os.path.join(workdir, 'wazo', 'plugin.yml'), mode='r') as f:
+        metadata = yaml.load(f)
+    return metadata['version']
+
+
+def fetch_and_tag(workdir, url):
+    print('cloning', url)
+    repo = git.Repo.clone_from(url, to_path=workdir)
+    current_version = get_current_version(workdir)
+    tag_name = 'v{}'.format(current_version)
+
+    if tag_exists(repo, tag_name):
+        print(tag_name, 'already exists. skipping')
+        return
+
+    print('tagging', tag_name)
+    tag = repo.create_tag(tag_name, ref='master', message=tag_name)
+    print('pushing', tag_name)
+    repo.remotes.origin.push(tag)
+
+
+def update_version(repo):
+    workdir = tempfile.mkdtemp()
+    try:
+        fetch_and_tag(workdir, repo)
+    finally:
+        shutil.rmtree(workdir)
+
+
+def main():
+    for repo in repos:
+        try:
+            update_version(repo)
+        except Exception:
+            print('exception while tagging', repo)
+            traceback.print_exc()
+
+
+if __name__ == '__main__':
+    main()
