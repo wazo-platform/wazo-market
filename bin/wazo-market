@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import shutil
+import sys
+import tempfile
+import yaml
+
+from git import Repo
+
+repos_path = tempfile.mkdtemp()
+repo_urls = {
+    'wazo-admin-ui-user': 'https://github.com/wazo-pbx/wazo-admin-ui-user',
+    'wazo-admin-ui-schedule': 'https://github.com/wazo-pbx/wazo-admin-ui-schedule',
+}
+
+aggregate_root = {'items': []}
+aggregate = aggregate_root['items']
+
+for repo_name, repo_url in repo_urls.items():
+    repo_path = os.path.join(repos_path, repo_name)
+    repo = Repo.clone_from(repo_url, repo_path)
+    last_tag = max((tag for tag in repo.tags if tag.tag), key=lambda tag: tag.tag.tag)
+    try:
+        metadata_blob = last_tag.commit.tree.join('wazo/plugin.yml')
+    except KeyError:
+        print('wazo/plugin.yml: file not found in {}:{}'.format(repo_name, last_tag.tag.tag), file=sys.stderr)
+    metadata = yaml.load(metadata_blob.data_stream.read())
+    plugin = {}
+    aggregate.append(plugin)
+    plugin['name'] = metadata['name']
+    plugin['namespace'] = metadata['namespace']
+    plugin['display_name'] = metadata['display_name']
+    plugin['author'] = metadata['author']
+    plugin['tags'] = []
+    plugin['repo_url'] = repo_url
+
+    plugin['versions'] = []
+    tags = repo.tags
+    for tag in tags:
+        if not tag.tag:
+            continue
+        try:
+            metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
+        except KeyError:
+            print('wazo/plugin.yml: file not found in {}:{}'.format(repo_name, tag.tag.tag), file=sys.stderr)
+        metadata = yaml.load(metadata_blob.data_stream.read())
+        metadata['tag_name'] = tag.name
+        version = {
+            'version': metadata['version'],
+            'method': 'git',
+            'options': {
+                'ref': tag.tag.tag,
+                'url': repo_url,
+            },
+        }
+        if metadata.get('min_wazo_version'):
+            version['min_wazo_version'] = metadata['min_wazo_version']
+        plugin['versions'].append(version)
+
+    plugin['versions'] = sorted(plugin['versions'], reverse=True, key=lambda version: version['version'])
+
+print(json.dumps(aggregate_root, indent=4, sort_keys=True))
+
+shutil.rmtree(repos_path)
