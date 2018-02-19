@@ -3,20 +3,20 @@
     {
       "author": "Wazo Team",
       "color": "green",
-      "display_name": "Callfilters",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-callfilter",
+      "display_name": "Call Filters",
+      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-call-filter",
       "icon": "filter",
-      "name": "admin-ui-callfilter",
+      "name": "admin-ui-call-filter",
       "namespace": "official",
       "tags": [
-        "callfilter"
+        "call filter"
       ],
       "versions": [
         {
           "method": "git",
           "options": {
             "ref": "master",
-            "url": "https://github.com/wazo-pbx/wazo-admin-ui-callfilter"
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-call-filter"
           },
           "version": "9999",
           "min_wazo_version": "18.03"
