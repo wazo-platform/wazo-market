@@ -3,6 +3,29 @@
     {
       "author": "Wazo Team",
       "color": "green",
+      "display_name": "Call Permissions",
+      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-call-permission",
+      "icon": "ban",
+      "name": "admin-ui-call-permission",
+      "namespace": "official",
+      "tags": [
+        "call permission"
+      ],
+      "versions": [
+        {
+          "method": "git",
+          "options": {
+            "ref": "master",
+            "url": "https://github.com/wazo-pbx/wazo-admin-ui-call-permission"
+          },
+          "version": "9999",
+          "min_wazo_version": "18.03"
+        }
+      ]
+    },
+    {
+      "author": "Wazo Team",
+      "color": "green",
       "display_name": "Call Filters",
       "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-call-filter",
       "icon": "filter",
