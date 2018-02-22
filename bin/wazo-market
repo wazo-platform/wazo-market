@@ -15,6 +15,17 @@ log_level = os.environ.get('LOG_LEVEL', 'INFO')
 logging.basicConfig(level=log_level)
 logger = logging.getLogger()
 
+
+class Plugin:
+    def __init__(self, namespace, name, url):
+        del namespace
+        self.name = name
+        self.url = url
+
+    def tag_filter(self, tag_name):
+        return True
+
+
 class WazoPlugin:
     def __init__(self, name):
         self.name = name
@@ -26,6 +37,39 @@ repos_path = tempfile.mkdtemp()
 plugin_defs = [
     WazoPlugin('wazo-admin-ui-user'),
     WazoPlugin('wazo-admin-ui-schedule'),
+    WazoPlugin('wazo-admin-ui-sound'),
+    WazoPlugin('wazo-admin-ui-line'),
+    WazoPlugin('wazo-admin-ui-funckey'),
+    WazoPlugin('wazo-admin-ui-group'),
+    WazoPlugin('wazo-admin-ui-conference'),
+    WazoPlugin('wazo-admin-ui-parking-lot'),
+    WazoPlugin('wazo-admin-ui-switchboard'),
+    WazoPlugin('wazo-admin-ui-voicemail'),
+    WazoPlugin('wazo-admin-ui-cdr'),
+    WazoPlugin('wazo-admin-ui-incall'),
+    WazoPlugin('wazo-admin-ui-outcall'),
+    WazoPlugin('wazo-admin-ui-paging'),
+    WazoPlugin('wazo-admin-ui-moh'),
+    WazoPlugin('wazo-admin-ui-trunk'),
+    WazoPlugin('wazo-admin-ui-extension'),
+    WazoPlugin('wazo-admin-ui-context'),
+    WazoPlugin('wazo-admin-ui-ivr'),
+    WazoPlugin('wazo-admin-ui-device'),
+    WazoPlugin('wazo-admin-ui-webhook'),
+    Plugin('incrediblepbx', 'firewall',
+           'https://github.com/sboily/incrediblepbx-firewall'),
+    Plugin('incrediblepbx', 'pbxstatus',
+           'https://github.com/sboily/incrediblepbx-pbxstatus'),
+    Plugin('incrediblepbx', 'moh',
+           'https://github.com/sboily/incrediblepbx-moh'),
+    Plugin('sboily', 'confgend-driver-followme',
+           'https://github.com/sboily/wazo-confgend-driver-followme'),
+    Plugin('sboily', 'confgend-driver-pjsip',
+           'https://github.com/sboily/wazo-confgend-driver-pjsip'),
+    Plugin('loway', 'queuemetrics',
+           'https://github.com/sboily/wazo-plugind-queuemetrics-loway'),
+    Plugin('official', 'ngrok',
+           'https://github.com/sboily/wazo-plugind-ngrok'),
 ]
 
 aggregate_root = {'items': []}
