@@ -2,6 +2,7 @@
 
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -14,6 +15,7 @@ class WazoPlugin:
     def __init__(self, name):
         self.name = name
         self.url = 'https://github.com/wazo-pbx/{name}'.format(name=name)
+        self.tag_filter = re.compile(r'^v[0-9.]+-[0-9.]+$').match
 
 
 repos_path = tempfile.mkdtemp()
@@ -28,7 +30,10 @@ aggregate = aggregate_root['items']
 for plugin_def in plugin_defs:
     repo_path = os.path.join(repos_path, plugin_def.name)
     repo = Repo.clone_from(plugin_def.url, repo_path)
-    last_tag = max((tag for tag in repo.tags if tag.tag), key=lambda tag: tag.tag.tag)
+    repo_tags = [tag for tag in repo.tags if tag.tag and plugin_def.tag_filter(tag.tag.tag)]
+    if not repo_tags:
+        continue
+    last_tag = max(repo_tags, key=lambda tag: tag.tag.tag)
     try:
         metadata_blob = last_tag.commit.tree.join('wazo/plugin.yml')
     except KeyError:
@@ -44,10 +49,7 @@ for plugin_def in plugin_defs:
     plugin['repo_url'] = plugin_def.url
 
     plugin['versions'] = []
-    tags = repo.tags
-    for tag in tags:
-        if not tag.tag:
-            continue
+    for tag in repo_tags:
         try:
             metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
         except KeyError:
