@@ -95,7 +95,7 @@ for plugin_def in plugin_defs:
     plugin['display_name'] = metadata['display_name']
     plugin['author'] = metadata['author']
     plugin['tags'] = []
-    plugin['repo_url'] = plugin_def.url
+    plugin['homepage'] = plugin_def.url
 
     plugin['versions'] = []
     for tag in repo_tags:
@@ -114,7 +114,7 @@ for plugin_def in plugin_defs:
             },
         }
         if metadata.get('min_wazo_version'):
-            version['min_wazo_version'] = metadata['min_wazo_version']
+            version['min_wazo_version'] = str(metadata['min_wazo_version'])
         plugin['versions'].append(version)
 
     plugin['versions'] = sorted(plugin['versions'], reverse=True, key=lambda version: version['version'])
