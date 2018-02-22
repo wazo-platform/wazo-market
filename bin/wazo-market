@@ -33,6 +33,18 @@ class WazoPlugin:
         self.tag_filter = re.compile(r'^v[0-9.]+-[0-9.]+$').match
 
 
+def _color(metadata):
+    if metadata['namespace'] != 'official':
+        return 'violet'
+    if 'application' in metadata['tags']:
+        return 'blue'
+    if 'beta' in metadata['tags']:
+        return 'yellow'
+    if 'alpha' in metadata['tags']:
+        return 'red'
+    return 'yellow'
+
+
 repos_path = tempfile.mkdtemp()
 plugin_defs = [
     WazoPlugin('wazo-admin-ui-user'),
@@ -89,14 +101,15 @@ for plugin_def in plugin_defs:
     except KeyError:
         print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, last_tag.name), file=sys.stderr)
     metadata = yaml.load(metadata_blob.data_stream.read())
+    if not metadata.get('tags'):
+        metadata['tags'] = []
     plugin = {}
     aggregate.append(plugin)
     plugin['name'] = metadata['name']
     plugin['namespace'] = metadata['namespace']
     plugin['display_name'] = metadata['display_name']
     plugin['author'] = metadata['author']
-    plugin['tags'] = []
-    plugin['homepage'] = plugin_def.url
+    plugin['color'] = _color(metadata)
 
     plugin['versions'] = []
     for tag in repo_tags:
