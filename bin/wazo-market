@@ -75,18 +75,19 @@ plugin_defs = [
 aggregate_root = {'items': []}
 aggregate = aggregate_root['items']
 
+
 for plugin_def in plugin_defs:
     logger.debug('Processing plugin %s', plugin_def.name)
     repo_path = os.path.join(repos_path, plugin_def.name)
     repo = Repo.clone_from(plugin_def.url, repo_path)
-    repo_tags = [tag for tag in repo.tags if tag.tag and plugin_def.tag_filter(tag.tag.tag)]
+    repo_tags = [tag for tag in repo.tags if plugin_def.tag_filter(tag.name)]
     if not repo_tags:
         continue
-    last_tag = max(repo_tags, key=lambda tag: tag.tag.tag)
+    last_tag = max(repo_tags, key=lambda tag: tag.name)
     try:
         metadata_blob = last_tag.commit.tree.join('wazo/plugin.yml')
     except KeyError:
-        print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, last_tag.tag.tag), file=sys.stderr)
+        print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, last_tag.name), file=sys.stderr)
     metadata = yaml.load(metadata_blob.data_stream.read())
     plugin = {}
     aggregate.append(plugin)
@@ -102,14 +103,14 @@ for plugin_def in plugin_defs:
         try:
             metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
         except KeyError:
-            print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, tag.tag.tag), file=sys.stderr)
+            print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, tag.name), file=sys.stderr)
         metadata = yaml.load(metadata_blob.data_stream.read())
         metadata['tag_name'] = tag.name
         version = {
             'version': metadata['version'],
             'method': 'git',
             'options': {
-                'ref': tag.tag.tag,
+                'ref': tag.name,
                 'url': plugin_def.url,
             },
         }
