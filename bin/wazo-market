@@ -9,23 +9,30 @@ import yaml
 
 from git import Repo
 
+
+class WazoPlugin:
+    def __init__(self, name):
+        self.name = name
+        self.url = 'https://github.com/wazo-pbx/{name}'.format(name=name)
+
+
 repos_path = tempfile.mkdtemp()
-repo_urls = {
-    'wazo-admin-ui-user': 'https://github.com/wazo-pbx/wazo-admin-ui-user',
-    'wazo-admin-ui-schedule': 'https://github.com/wazo-pbx/wazo-admin-ui-schedule',
-}
+plugin_defs = [
+    WazoPlugin('wazo-admin-ui-user'),
+    WazoPlugin('wazo-admin-ui-schedule'),
+]
 
 aggregate_root = {'items': []}
 aggregate = aggregate_root['items']
 
-for repo_name, repo_url in repo_urls.items():
-    repo_path = os.path.join(repos_path, repo_name)
-    repo = Repo.clone_from(repo_url, repo_path)
+for plugin_def in plugin_defs:
+    repo_path = os.path.join(repos_path, plugin_def.name)
+    repo = Repo.clone_from(plugin_def.url, repo_path)
     last_tag = max((tag for tag in repo.tags if tag.tag), key=lambda tag: tag.tag.tag)
     try:
         metadata_blob = last_tag.commit.tree.join('wazo/plugin.yml')
     except KeyError:
-        print('wazo/plugin.yml: file not found in {}:{}'.format(repo_name, last_tag.tag.tag), file=sys.stderr)
+        print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, last_tag.tag.tag), file=sys.stderr)
     metadata = yaml.load(metadata_blob.data_stream.read())
     plugin = {}
     aggregate.append(plugin)
@@ -34,7 +41,7 @@ for repo_name, repo_url in repo_urls.items():
     plugin['display_name'] = metadata['display_name']
     plugin['author'] = metadata['author']
     plugin['tags'] = []
-    plugin['repo_url'] = repo_url
+    plugin['repo_url'] = plugin_def.url
 
     plugin['versions'] = []
     tags = repo.tags
@@ -44,7 +51,7 @@ for repo_name, repo_url in repo_urls.items():
         try:
             metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
         except KeyError:
-            print('wazo/plugin.yml: file not found in {}:{}'.format(repo_name, tag.tag.tag), file=sys.stderr)
+            print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, tag.tag.tag), file=sys.stderr)
         metadata = yaml.load(metadata_blob.data_stream.read())
         metadata['tag_name'] = tag.name
         version = {
@@ -52,7 +59,7 @@ for repo_name, repo_url in repo_urls.items():
             'method': 'git',
             'options': {
                 'ref': tag.tag.tag,
-                'url': repo_url,
+                'url': plugin_def.url,
             },
         }
         if metadata.get('min_wazo_version'):
