@@ -82,7 +82,7 @@ for plugin_def in plugin_defs:
     repo = Repo.clone_from(plugin_def.url, repo_path)
     repo_tags = [tag for tag in repo.tags if plugin_def.tag_filter(tag.name)]
     if not repo_tags:
-        continue
+        repo_tags = [repo.heads.master]
     last_tag = max(repo_tags, key=lambda tag: tag.name)
     try:
         metadata_blob = last_tag.commit.tree.join('wazo/plugin.yml')
