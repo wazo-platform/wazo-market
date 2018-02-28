@@ -21,14 +21,22 @@ class Plugin:
         del namespace
         self.name = name
         self.url = url
+        self.repo = None
 
     def tag_filter(self, tag_name):
         return True
 
     def get_repo(self, directory):
         repo_path = os.path.join(directory, plugin_def.name)
-        repo = Repo.clone_from(plugin_def.url, repo_path)
-        return repo
+        self.repo = Repo.clone_from(plugin_def.url, repo_path)
+        return self.repo
+
+    def git_tags(self):
+        repo_tags = [tag for tag in self.repo.tags if self.tag_filter(tag.name)]
+        if not repo_tags:
+            repo_tags = [repo.heads.master]
+
+        return repo_tags
 
 
 class WazoPlugin(Plugin):
@@ -103,9 +111,7 @@ aggregate = aggregate_root['items']
 for plugin_def in plugin_defs:
     logger.debug('Processing plugin %s', plugin_def.name)
     repo = plugin_def.get_repo(repos_path)
-    repo_tags = [tag for tag in repo.tags if plugin_def.tag_filter(tag.name)]
-    if not repo_tags:
-        repo_tags = [repo.heads.master]
+    repo_tags = plugin_def.git_tags()
     last_tag = max(repo_tags, key=lambda tag: tag.name)
     try:
         metadata_blob = last_tag.commit.tree.join('wazo/plugin.yml')
@@ -126,7 +132,7 @@ for plugin_def in plugin_defs:
     plugin['icon'] = metadata.get('icon', 'puzzle-piece')
 
     plugin['versions'] = []
-    for tag in repo_tags:
+    for tag in plugin_def.git_tags():
         try:
             metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
         except KeyError:
