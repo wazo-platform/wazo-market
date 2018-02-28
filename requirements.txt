@@ -1,0 +1,3 @@
+gitpython
+pyyaml
+requests
