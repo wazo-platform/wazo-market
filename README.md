@@ -28,6 +28,12 @@ docker run -p 8888:80 -v /path/to/wazo-market:/usr/share/nginx/html \
     --name wazo-market-dev -d nginx
 ```
 
+## Taging all plugins
+
+```
+auto-tag
+```
+
 ## Autogeneration of market file
 
 ```
