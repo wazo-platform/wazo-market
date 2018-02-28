@@ -1337,6 +1337,15 @@
                     "method": "git",
                     "min_wazo_version": "18.03",
                     "options": {
+                        "ref": "v1.0.3-1",
+                        "url": "https://github.com/wazo-pbx/wazo-admin-ui-callfilter"
+                    },
+                    "version": "1.0.3-1"
+                },
+                {
+                    "method": "git",
+                    "min_wazo_version": "18.03",
+                    "options": {
                         "ref": "v1.0.2-1",
                         "url": "https://github.com/wazo-pbx/wazo-admin-ui-callfilter"
                     },
