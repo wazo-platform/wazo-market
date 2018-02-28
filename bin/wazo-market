@@ -1,0 +1,160 @@
+#!/usr/bin/env python3
+
+import json
+import logging
+import os
+import re
+import shutil
+import sys
+import tempfile
+import yaml
+
+from git import Repo
+
+log_level = os.environ.get('LOG_LEVEL', 'INFO')
+logging.basicConfig(level=log_level)
+logger = logging.getLogger()
+
+
+class Plugin:
+    def __init__(self, namespace, name, url):
+        del namespace
+        self.name = name
+        self.url = url
+        self.repo = None
+
+    def tag_filter(self, tag_name):
+        return True
+
+    def get_repo(self, directory):
+        repo_path = os.path.join(directory, plugin_def.name)
+        self.repo = Repo.clone_from(plugin_def.url, repo_path)
+        return self.repo
+
+    def git_tags(self):
+        repo_tags = [tag for tag in self.repo.tags if self.tag_filter(tag.name)]
+        if not repo_tags:
+            repo_tags = [repo.heads.master]
+
+        return repo_tags
+
+    def latest_git_tag(self):
+        latest_tag = max(self.git_tags(), key=lambda tag: tag.name)
+        return latest_tag
+
+    def metadata(self, tag_name):
+        tag = self.repo.refs[tag_name]
+        try:
+            metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
+        except KeyError:
+            print('wazo/plugin.yml: file not found in {}:{}'.format(self.name, tag.name), file=sys.stderr)
+        metadata = yaml.load(metadata_blob.data_stream.read())
+        return metadata
+
+
+class WazoPlugin(Plugin):
+    def __init__(self, name):
+        super().__init__(
+            namespace=None,
+            name=name,
+            url='https://github.com/wazo-pbx/{name}'.format(name=name),
+        )
+        self.tag_filter = re.compile(r'^v[0-9.]+-[0-9.]+$').match
+
+
+def _color(metadata):
+    if metadata['namespace'] != 'official':
+        return 'violet'
+    if 'application' in metadata['tags']:
+        return 'blue'
+    if 'beta' in metadata['tags']:
+        return 'yellow'
+    if 'alpha' in metadata['tags']:
+        return 'red'
+    return 'yellow'
+
+
+plugin_defs = [
+    WazoPlugin('wazo-admin-ui-user'),
+    WazoPlugin('wazo-admin-ui-schedule'),
+    WazoPlugin('wazo-admin-ui-sound'),
+    WazoPlugin('wazo-admin-ui-line'),
+    WazoPlugin('wazo-admin-ui-funckey'),
+    WazoPlugin('wazo-admin-ui-group'),
+    WazoPlugin('wazo-admin-ui-conference'),
+    WazoPlugin('wazo-admin-ui-parking-lot'),
+    WazoPlugin('wazo-admin-ui-switchboard'),
+    WazoPlugin('wazo-admin-ui-voicemail'),
+    WazoPlugin('wazo-admin-ui-cdr'),
+    WazoPlugin('wazo-admin-ui-incall'),
+    WazoPlugin('wazo-admin-ui-outcall'),
+    WazoPlugin('wazo-admin-ui-paging'),
+    WazoPlugin('wazo-admin-ui-moh'),
+    WazoPlugin('wazo-admin-ui-trunk'),
+    WazoPlugin('wazo-admin-ui-extension'),
+    WazoPlugin('wazo-admin-ui-context'),
+    WazoPlugin('wazo-admin-ui-ivr'),
+    WazoPlugin('wazo-admin-ui-device'),
+    WazoPlugin('wazo-admin-ui-webhook'),
+    WazoPlugin('wazo-admin-ui-general-settings'),
+    WazoPlugin('wazo-admin-ui-call-permission'),
+    WazoPlugin('wazo-admin-ui-callfilter'),
+    #WazoPlugin('wazo-admin-ui-entity'),
+    Plugin('incrediblepbx', 'firewall',
+           'https://github.com/sboily/incrediblepbx-firewall'),
+    Plugin('incrediblepbx', 'pbxstatus',
+           'https://github.com/sboily/incrediblepbx-pbxstatus'),
+    Plugin('incrediblepbx', 'moh',
+           'https://github.com/sboily/incrediblepbx-moh'),
+    Plugin('sboily', 'confgend-driver-followme',
+           'https://github.com/sboily/wazo-confgend-driver-followme'),
+    Plugin('sboily', 'confgend-driver-pjsip',
+           'https://github.com/sboily/wazo-confgend-driver-pjsip'),
+    Plugin('loway', 'queuemetrics',
+           'https://github.com/sboily/wazo-plugind-queuemetrics-loway'),
+    Plugin('official', 'ngrok',
+           'https://github.com/sboily/wazo-plugind-ngrok'),
+]
+
+aggregate_root = {'items': []}
+aggregate = aggregate_root['items']
+
+
+with tempfile.TemporaryDirectory() as repos_path:
+    for plugin_def in plugin_defs:
+        logger.debug('Processing plugin %s', plugin_def.name)
+        repo = plugin_def.get_repo(repos_path)
+        last_tag = plugin_def.latest_git_tag()
+        metadata = plugin_def.metadata(last_tag.name)
+        if not metadata.get('tags'):
+            metadata['tags'] = []
+        plugin = {}
+        aggregate.append(plugin)
+        plugin['name'] = metadata['name']
+        plugin['namespace'] = metadata['namespace']
+        plugin['display_name'] = metadata['display_name']
+        plugin['author'] = metadata['author']
+        plugin['color'] = _color(metadata)
+        plugin['homepage'] = metadata['homepage']
+        plugin['tags'] = metadata['tags']
+        plugin['icon'] = metadata.get('icon', 'puzzle-piece')
+
+        plugin['versions'] = []
+        for tag in plugin_def.git_tags():
+            metadata = plugin_def.metadata(tag.name)
+            metadata['tag_name'] = tag.name
+            version = {
+                'version': metadata['version'],
+                'method': 'git',
+                'options': {
+                    'ref': tag.name,
+                    'url': plugin_def.url,
+                },
+            }
+            if metadata.get('min_wazo_version'):
+                version['min_wazo_version'] = str(metadata['min_wazo_version'])
+            plugin['versions'].append(version)
+
+        plugin['versions'] = sorted(plugin['versions'], reverse=True, key=lambda version: version['version'])
+
+    print(json.dumps(aggregate_root, indent=4, sort_keys=True))
