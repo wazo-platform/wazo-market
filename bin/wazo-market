@@ -26,10 +26,13 @@ class Plugin:
         return True
 
 
-class WazoPlugin:
+class WazoPlugin(Plugin):
     def __init__(self, name):
-        self.name = name
-        self.url = 'https://github.com/wazo-pbx/{name}'.format(name=name)
+        super().__init__(
+            namespace=None,
+            name=name,
+            url='https://github.com/wazo-pbx/{name}'.format(name=name),
+        )
         self.tag_filter = re.compile(r'^v[0-9.]+-[0-9.]+$').match
 
 
