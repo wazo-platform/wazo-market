@@ -7,14 +7,12 @@
 
 import git
 import os
+import requests
 import shutil
 import tempfile
 import traceback
+import sys
 import yaml
-
-repos = [
-    'git@github.com:wazo-pbx/wazo-admin-ui-user.git',
-]
 
 
 def tag_exists(repo, tag_name):
@@ -53,15 +51,45 @@ def fetch_and_tag(workdir, url):
 
 
 def update_version(repo):
+    git_url = 'git@github.com:wazo-pbx/{}.git'.format(repo)
     workdir = tempfile.mkdtemp()
     try:
-        fetch_and_tag(workdir, repo)
+        fetch_and_tag(workdir, git_url)
     finally:
         shutil.rmtree(workdir)
 
 
 def main():
+    print('fetching repo list...')
+    result = requests.get('http://mirror.wazo.community/repos/all')
+    result.raise_for_status()
+    repos = result.content.decode().strip().split('\n')
+    base_dir = '/home/pcm/dev/xivo'
+
+    print('checking if all repos exists...')
+    missing = False
     for repo in repos:
+        repo_dir = os.path.join(base_dir, repo)
+        if not os.path.exists(repo_dir):
+            if not missing:
+                print('Missing repos')
+                missing = True
+            print(repo)
+
+    if missing:
+        sys.exit(1)
+
+    print('finding all plugins...')
+    plugins = []
+    for repo in repos:
+        metadata_file = os.path.join(base_dir, repo, 'wazo', 'plugin.yml')
+        if os.path.exists(metadata_file):
+            plugins.append(repo)
+
+    # from pprint import pprint
+    # pprint(plugins)
+    # print(len(plugins))
+    for repo in plugins:
         try:
             update_version(repo)
         except Exception:
