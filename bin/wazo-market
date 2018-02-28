@@ -74,7 +74,6 @@ def _color(metadata):
     return 'yellow'
 
 
-repos_path = tempfile.mkdtemp()
 plugin_defs = [
     WazoPlugin('wazo-admin-ui-user'),
     WazoPlugin('wazo-admin-ui-schedule'),
@@ -121,42 +120,41 @@ aggregate_root = {'items': []}
 aggregate = aggregate_root['items']
 
 
-for plugin_def in plugin_defs:
-    logger.debug('Processing plugin %s', plugin_def.name)
-    repo = plugin_def.get_repo(repos_path)
-    last_tag = plugin_def.latest_git_tag()
-    metadata = plugin_def.metadata(last_tag.name)
-    if not metadata.get('tags'):
-        metadata['tags'] = []
-    plugin = {}
-    aggregate.append(plugin)
-    plugin['name'] = metadata['name']
-    plugin['namespace'] = metadata['namespace']
-    plugin['display_name'] = metadata['display_name']
-    plugin['author'] = metadata['author']
-    plugin['color'] = _color(metadata)
-    plugin['homepage'] = metadata['homepage']
-    plugin['tags'] = metadata['tags']
-    plugin['icon'] = metadata.get('icon', 'puzzle-piece')
+with tempfile.TemporaryDirectory() as repos_path:
+    for plugin_def in plugin_defs:
+        logger.debug('Processing plugin %s', plugin_def.name)
+        repo = plugin_def.get_repo(repos_path)
+        last_tag = plugin_def.latest_git_tag()
+        metadata = plugin_def.metadata(last_tag.name)
+        if not metadata.get('tags'):
+            metadata['tags'] = []
+        plugin = {}
+        aggregate.append(plugin)
+        plugin['name'] = metadata['name']
+        plugin['namespace'] = metadata['namespace']
+        plugin['display_name'] = metadata['display_name']
+        plugin['author'] = metadata['author']
+        plugin['color'] = _color(metadata)
+        plugin['homepage'] = metadata['homepage']
+        plugin['tags'] = metadata['tags']
+        plugin['icon'] = metadata.get('icon', 'puzzle-piece')
 
-    plugin['versions'] = []
-    for tag in plugin_def.git_tags():
-        metadata = plugin_def.metadata(tag.name)
-        metadata['tag_name'] = tag.name
-        version = {
-            'version': metadata['version'],
-            'method': 'git',
-            'options': {
-                'ref': tag.name,
-                'url': plugin_def.url,
-            },
-        }
-        if metadata.get('min_wazo_version'):
-            version['min_wazo_version'] = str(metadata['min_wazo_version'])
-        plugin['versions'].append(version)
+        plugin['versions'] = []
+        for tag in plugin_def.git_tags():
+            metadata = plugin_def.metadata(tag.name)
+            metadata['tag_name'] = tag.name
+            version = {
+                'version': metadata['version'],
+                'method': 'git',
+                'options': {
+                    'ref': tag.name,
+                    'url': plugin_def.url,
+                },
+            }
+            if metadata.get('min_wazo_version'):
+                version['min_wazo_version'] = str(metadata['min_wazo_version'])
+            plugin['versions'].append(version)
 
-    plugin['versions'] = sorted(plugin['versions'], reverse=True, key=lambda version: version['version'])
+        plugin['versions'] = sorted(plugin['versions'], reverse=True, key=lambda version: version['version'])
 
-print(json.dumps(aggregate_root, indent=4, sort_keys=True))
-
-shutil.rmtree(repos_path)
+    print(json.dumps(aggregate_root, indent=4, sort_keys=True))
