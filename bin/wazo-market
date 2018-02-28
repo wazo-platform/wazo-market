@@ -100,7 +100,7 @@ plugin_defs = [
     WazoPlugin('wazo-admin-ui-webhook'),
     WazoPlugin('wazo-admin-ui-general-settings'),
     WazoPlugin('wazo-admin-ui-call-permission'),
-    WazoPlugin('wazo-admin-ui-callfilter'),
+    WazoPlugin('wazo-admin-ui-call-filter'),
     #WazoPlugin('wazo-admin-ui-entity'),
     Plugin('incrediblepbx', 'firewall',
            'https://github.com/sboily/incrediblepbx-firewall'),
