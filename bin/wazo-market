@@ -25,6 +25,11 @@ class Plugin:
     def tag_filter(self, tag_name):
         return True
 
+    def get_repo(self, directory):
+        repo_path = os.path.join(directory, plugin_def.name)
+        repo = Repo.clone_from(plugin_def.url, repo_path)
+        return repo
+
 
 class WazoPlugin(Plugin):
     def __init__(self, name):
@@ -97,8 +102,7 @@ aggregate = aggregate_root['items']
 
 for plugin_def in plugin_defs:
     logger.debug('Processing plugin %s', plugin_def.name)
-    repo_path = os.path.join(repos_path, plugin_def.name)
-    repo = Repo.clone_from(plugin_def.url, repo_path)
+    repo = plugin_def.get_repo(repos_path)
     repo_tags = [tag for tag in repo.tags if plugin_def.tag_filter(tag.name)]
     if not repo_tags:
         repo_tags = [repo.heads.master]
