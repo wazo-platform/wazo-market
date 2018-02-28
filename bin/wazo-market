@@ -110,6 +110,9 @@ for plugin_def in plugin_defs:
     plugin['display_name'] = metadata['display_name']
     plugin['author'] = metadata['author']
     plugin['color'] = _color(metadata)
+    plugin['homepage'] = metadata['homepage']
+    plugin['tags'] = metadata['tags']
+    plugin['icon'] = metadata.get('icon', 'puzzle-piece')
 
     plugin['versions'] = []
     for tag in repo_tags:
