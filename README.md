@@ -27,3 +27,9 @@ Content of the Wazo market place
 docker run -p 8888:80 -v /path/to/wazo-market:/usr/share/nginx/html \
     --name wazo-market-dev -d nginx
 ```
+
+## Autogeneration of market file
+
+```
+wazo-market > v1/plugins
+```
