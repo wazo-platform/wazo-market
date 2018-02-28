@@ -42,6 +42,15 @@ class Plugin:
         latest_tag = max(self.git_tags(), key=lambda tag: tag.name)
         return latest_tag
 
+    def metadata(self, tag_name):
+        tag = self.repo.refs[tag_name]
+        try:
+            metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
+        except KeyError:
+            print('wazo/plugin.yml: file not found in {}:{}'.format(self.name, tag.name), file=sys.stderr)
+        metadata = yaml.load(metadata_blob.data_stream.read())
+        return metadata
+
 
 class WazoPlugin(Plugin):
     def __init__(self, name):
@@ -116,11 +125,7 @@ for plugin_def in plugin_defs:
     logger.debug('Processing plugin %s', plugin_def.name)
     repo = plugin_def.get_repo(repos_path)
     last_tag = plugin_def.latest_git_tag()
-    try:
-        metadata_blob = last_tag.commit.tree.join('wazo/plugin.yml')
-    except KeyError:
-        print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, last_tag.name), file=sys.stderr)
-    metadata = yaml.load(metadata_blob.data_stream.read())
+    metadata = plugin_def.metadata(last_tag.name)
     if not metadata.get('tags'):
         metadata['tags'] = []
     plugin = {}
@@ -136,11 +141,7 @@ for plugin_def in plugin_defs:
 
     plugin['versions'] = []
     for tag in plugin_def.git_tags():
-        try:
-            metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
-        except KeyError:
-            print('wazo/plugin.yml: file not found in {}:{}'.format(plugin_def.name, tag.name), file=sys.stderr)
-        metadata = yaml.load(metadata_blob.data_stream.read())
+        metadata = plugin_def.metadata(tag.name)
         metadata['tag_name'] = tag.name
         version = {
             'version': metadata['version'],
