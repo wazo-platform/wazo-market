@@ -38,6 +38,10 @@ class Plugin:
 
         return repo_tags
 
+    def latest_git_tag(self):
+        latest_tag = max(self.git_tags(), key=lambda tag: tag.name)
+        return latest_tag
+
 
 class WazoPlugin(Plugin):
     def __init__(self, name):
@@ -111,8 +115,7 @@ aggregate = aggregate_root['items']
 for plugin_def in plugin_defs:
     logger.debug('Processing plugin %s', plugin_def.name)
     repo = plugin_def.get_repo(repos_path)
-    repo_tags = plugin_def.git_tags()
-    last_tag = max(repo_tags, key=lambda tag: tag.name)
+    last_tag = plugin_def.latest_git_tag()
     try:
         metadata_blob = last_tag.commit.tree.join('wazo/plugin.yml')
     except KeyError:
