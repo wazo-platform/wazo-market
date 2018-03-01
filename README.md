@@ -39,3 +39,9 @@ auto-tag
 ```
 wazo-market > v1/plugins
 ```
+
+With blacklisting:
+
+```
+wazo-market | wazo-market-blacklist > v1/plugins
+```
