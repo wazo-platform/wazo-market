@@ -49,7 +49,8 @@ class Plugin:
         try:
             metadata_blob = tag.commit.tree.join('wazo/plugin.yml')
         except KeyError:
-            print('wazo/plugin.yml: file not found in {}:{}'.format(self.name, tag.name), file=sys.stderr)
+            raise Exception('wazo/plugin.yml: file not found in {}:{}'.format(self.name, tag.name), file=sys.stderr)
+
         metadata = yaml.load(metadata_blob.data_stream.read())
         return metadata
 
