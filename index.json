@@ -1,14 +1,14 @@
 {
   "items": [
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-user",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-user",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-user",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-user",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-user",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-user",
       "display_name": "Users",
       "tags": [
         "beta",
@@ -21,14 +21,14 @@
       "color": "aqua"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-group",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-group",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-group",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-group",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-group",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-group",
       "display_name": "Groups",
       "tags": [
         "beta",
@@ -41,14 +41,14 @@
       "color": "aqua"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-conference",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-conference",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-conference",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-conference",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-conference",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-conference",
       "display_name": "Conferences",
       "tags": [
         "beta",
@@ -61,14 +61,14 @@
       "color": "yellow"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-parking-lot",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-parking-lot",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-parking-lot",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-parking-lot",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-parking-lot",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-parking-lot",
       "display_name": "Parking",
       "tags": [
         "beta",
@@ -81,14 +81,14 @@
       "color": "yellow"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-switchboard",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-switchboard",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-switchboard",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-switchboard",
       "display_name": "Switchboard",
       "tags": [
         "beta",
@@ -101,14 +101,14 @@
       "color": "yellow"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-voicemail",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-voicemail",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-voicemail",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-voicemail",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-voicemail",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-voicemail",
       "display_name": "Voicemail",
       "tags": [
         "beta",
@@ -121,14 +121,14 @@
       "color": "yellow"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-cdr",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-cdr",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-cdr",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-cdr",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-cdr",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-cdr",
       "display_name": "CDR",
       "tags": [
         "beta",
@@ -141,14 +141,14 @@
       "icon": "newspaper-o"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-incall",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-incall",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-incall",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-incall",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-incall",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-incall",
       "display_name": "Incalls",
       "tags": [
         "beta",
@@ -161,14 +161,14 @@
       "icon": "long-arrow-right"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-outcall",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-outcall",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-outcall",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-outcall",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-outcall",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-outcall",
       "display_name": "Outcalls",
       "tags": [
         "beta",
@@ -181,14 +181,14 @@
       "icon": "long-arrow-left"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-paging",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-paging",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-paging",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-paging",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-paging",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-paging",
       "display_name": "Paging",
       "tags": [
         "beta",
@@ -201,14 +201,14 @@
       "icon": "bullhorn"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-moh",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-moh",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-moh",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-moh",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-moh",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-moh",
       "display_name": "Music On Hold",
       "tags": [
         "beta",
@@ -221,14 +221,14 @@
       "icon": "music"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-trunk",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-trunk",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-trunk",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-trunk",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-trunk",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-trunk",
       "display_name": "Trunks",
       "tags": [
         "beta",
@@ -241,14 +241,14 @@
       "icon": "server"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-extension",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-extension",
       "version": "0.0.2",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-extension",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-extension",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-extension",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-extension",
       "display_name": "Extensions",
       "tags": [
         "beta",
@@ -261,14 +261,14 @@
       "icon": "gears"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-context",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-context",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-context",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-context",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-context",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-context",
       "display_name": "Context",
       "tags": [
         "beta",
@@ -281,14 +281,14 @@
       "icon": "gears"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-ivr",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-ivr",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-ivr",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-ivr",
         "ref": "wazo-17.09"
       },
       "method": "git",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-ivr",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-ivr",
       "display_name": "IVR",
       "tags": [
         "beta",
@@ -301,11 +301,11 @@
       "icon": "navicon"
     },
     {
-      "url": "https://github.com/wazo-pbx/wazo-admin-ui-device",
-      "homepage": "https://github.com/wazo-pbx/wazo-admin-ui-device",
+      "url": "https://github.com/wazo-platform/wazo-admin-ui-device",
+      "homepage": "https://github.com/wazo-platform/wazo-admin-ui-device",
       "version": "0.0.1",
       "options": {
-        "url": "https://github.com/wazo-pbx/wazo-admin-ui-device",
+        "url": "https://github.com/wazo-platform/wazo-admin-ui-device",
         "ref": "wazo-17.09"
       },
       "method": "git",

@@ -60,7 +60,7 @@ class WazoPlugin(Plugin):
         super().__init__(
             namespace=None,
             name=name,
-            url='https://github.com/wazo-pbx/{name}'.format(name=name),
+            url='https://github.com/wazo-platform/{name}'.format(name=name),
         )
         self.tag_filter = re.compile(r'^v[0-9.]+-[0-9.]+$').match
 
