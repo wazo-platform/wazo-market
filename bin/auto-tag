@@ -51,7 +51,7 @@ def fetch_and_tag(workdir, url):
 
 
 def update_version(repo):
-    git_url = 'git@github.com:wazo-pbx/{}.git'.format(repo)
+    git_url = 'git@github.com:wazo-platform/{}.git'.format(repo)
     workdir = tempfile.mkdtemp()
     try:
         fetch_and_tag(workdir, git_url)
