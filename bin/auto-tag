@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Copyright 2018 The Wazo Authors  (see the AUTHORS file)
-# SPDX-License-Identifier: GPL-3.0+
+# Copyright 2018-2024 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # This script clones a list of repository, find the version on the master branch
 # If there's no tag for the version master is tagged "v<version>" and the tag is
@@ -30,7 +30,7 @@ def tag_exists(repo, tag_name):
 def get_current_version(workdir):
     print('loading plugin metadata')
     with open(os.path.join(workdir, 'wazo', 'plugin.yml'), mode='r') as f:
-        metadata = yaml.load(f)
+        metadata = yaml.load(f, Loader=yaml.FullLoader)
     return metadata['version']
 
 

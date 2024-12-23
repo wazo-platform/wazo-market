@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Copyright 2018 The Wazo Authors  (see the AUTHORS file)
-# SPDX-License-Identifier: GPL-3.0+
+# Copyright 2018-2024 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 import json
 import sys
@@ -10,7 +10,7 @@ blacklist = [
     'admin-ui-entity',
 ]
 
-market = yaml.load(sys.stdin.read())
+market = yaml.load(sys.stdin.read(), Loader=yaml.FullLoader)
 plugins = market['items']
 market['items'] = [plugin for plugin in plugins if plugin['name'] not in blacklist]
 
